@@ -1,7 +1,10 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+// Use VITE_API_URL environment variable (set via Cloudflare Pages)
+// Falls back to /api for local development
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
 async function request(path, options = {}) {
-  const res = await fetch(`${API_BASE}${path}`, {
+  const url = `${API_BASE}${path}`;
+  const res = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
     ...options
   });
