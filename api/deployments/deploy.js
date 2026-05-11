@@ -11,7 +11,16 @@ export default function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    const { service } = req.body;
+    let body = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return res.status(400).json({ success: false, message: 'Invalid JSON in request body.' });
+      }
+    }
+    
+    const { service } = body;
     if (!service) {
       return res.status(400).json({ success: false, message: 'Service name is required.' });
     }

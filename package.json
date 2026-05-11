@@ -1,6 +1,7 @@
 {
   "name": "cloudops-dashboard",
   "private": true,
+  "type": "module",
   "workspaces": [
     "frontend"
   ],
