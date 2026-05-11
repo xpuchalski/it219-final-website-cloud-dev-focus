@@ -6,6 +6,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "echo 'Backend is ready to run'",
     "test": "vitest run"
   },
   "dependencies": {

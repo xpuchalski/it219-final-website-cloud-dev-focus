@@ -1,0 +1,4 @@
+runtime: node-18
+routes:
+  - src: /(.*)
+    dest: /server.js
